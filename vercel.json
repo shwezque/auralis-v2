@@ -1,0 +1,19 @@
+{
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/" }],
+  "functions": {
+    "api/crawl.js":         { "maxDuration": 60 },
+    "api/create-agent.js":  { "maxDuration": 60 },
+    "api/get-agent.js":     { "maxDuration": 15 },
+    "api/enrich-agent.js":  { "maxDuration": 60 },
+    "api/live-token.js":    { "maxDuration": 10 }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" }
+      ]
+    }
+  ]
+}
